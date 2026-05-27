@@ -1,10 +1,8 @@
-// in MakersSearchTest.java
-
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.Random;
 
 public class AddTests {
     private static ChromeDriver driver;
@@ -28,14 +26,19 @@ public class AddTests {
 
     @Test
     public void addMultipleItems() throws Exception {
+        String[] words = {"apple", "banana", "orange", "grape", "melon"};
+        Random random = new Random();
         driver.get("https://todomvc.com/examples/react/dist/#/active");
         WebElement searchBar = driver.findElement(By.id("todo-input"));
-        int number_of_items = 1;
-        while(number_of_items <= 10) {
-            searchBar.sendKeys("test");
+        int itemNumber = 1;
+        while(itemNumber <= 10) {
+            String randomWord = words[random.nextInt(words.length)];
+            searchBar.sendKeys(randomWord);
             searchBar.sendKeys(Keys.ENTER);
-            number_of_items++;
-            Thread.sleep(500);
+            WebElement currentItem = driver.findElement(By.cssSelector("li:nth-child(" + itemNumber + ") label"));
+            assertEquals(currentItem.getText(), randomWord);
+            itemNumber++;
+            Thread.sleep(1000);
         }
     }
 
