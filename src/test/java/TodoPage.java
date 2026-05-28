@@ -34,6 +34,7 @@ public class TodoPage {
             i++;
         }
     }
+
     public void modifyItem(int itemID, String textToAdd) {
             WebElement itemToModify = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
             new Actions(driver)
@@ -43,13 +44,21 @@ public class TodoPage {
             textToModify.sendKeys(textToAdd);
             textToModify.sendKeys(Keys.ENTER);
     }
-    public void deleteItem(int itemID, String textToAdd) {
-        WebElement itemToModify = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
+    public void deleteItem(int itemID) {
+        WebElement itemToDelete = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
         new Actions(driver)
-                .doubleClick(itemToModify)
+                .moveToElement(itemToDelete)
                 .perform();
-        WebElement textToModify = driver.findElement(By.cssSelector(".input-container:nth-child(1) > #todo-input"));
-        textToModify.sendKeys(textToAdd);
-        textToModify.sendKeys(Keys.ENTER);
+        driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") .destroy")).click();
+    }
+    public void deleteMultipleItems(int numberOfItems) {
+        while (numberOfItems >= 1) {
+            WebElement itemToDelete = driver.findElement(By.cssSelector("li:nth-child(" + (numberOfItems) + ") label"));
+            new Actions(driver)
+                    .moveToElement(itemToDelete)
+                    .perform();
+            driver.findElement(By.cssSelector("li:nth-child(" + (numberOfItems) + ") .destroy")).click();
+            numberOfItems--;
+        }
     }
 }
