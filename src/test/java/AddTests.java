@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Random;
 
 public class AddTests {
-    private static ChromeDriver driver;
+    private ChromeDriver driver;;
 
-    @BeforeAll
-    static void launchBrowser() {
+    @BeforeEach
+    void launchBrowser() {
         driver = new ChromeDriver();
     }
 
@@ -42,8 +42,8 @@ public class AddTests {
         }
     }
 
-    @AfterAll
-    static void closeBrowser() {
+    @AfterEach
+    void closeBrowser() {
         driver.quit();
     }
 }
