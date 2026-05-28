@@ -20,8 +20,7 @@ public class ModifyTests {
 
     @Test
     public void modifyItemTest() throws Exception {
-        TodoPage page = new TodoPage(driver);
-        page.navigate();
+        TodoPage page = new TodoPage(driver).navigate();
         page.addMultipleItems(10);
         String textToAdd = "123";
         int itemID = 5;
@@ -33,8 +32,7 @@ public class ModifyTests {
 
     @Test
     public void modifyItemByRemovingAllTextTest() throws Exception {
-        TodoPage page = new TodoPage(driver);
-        page.navigate();
+        TodoPage page = new TodoPage(driver).navigate();
         page.addMultipleItems(10);
         String newText = "123";
         int itemID = 5;
@@ -53,8 +51,7 @@ public class ModifyTests {
 
     @Test
     public void modifyCompletedItemTest() throws Exception {
-        TodoPage page = new TodoPage(driver);
-        page.navigate();
+        TodoPage page = new TodoPage(driver).navigate();
         page.addItem("test");
         WebElement itemCheckbox = driver.findElement(By.cssSelector("[data-testid='todo-item-toggle']"));
         itemCheckbox.click();

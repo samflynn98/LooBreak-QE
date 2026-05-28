@@ -13,8 +13,7 @@ public class DeleteTests {
 
     @Test
     public void deleteMultipleItemsTest() throws Exception {
-        TodoPage page = new TodoPage(driver);
-        page.navigate();
+        TodoPage page = new TodoPage(driver).navigate();
         int numberOfItemsToAdd = 1;
         page.addMultipleItems(numberOfItemsToAdd);
         int numberOfItemsToDelete = 1;
@@ -25,8 +24,6 @@ public class DeleteTests {
 
     @Test
     public void noItemsNothingToDeleteTest() throws Exception {
-        TodoPage page = new TodoPage(driver);
-        page.navigate();
         int itemCount = driver.findElements(By.cssSelector("[data-testid='todo-item-label']")).size();
         assertEquals(0, itemCount);
         int clearCompletedButtons = driver.findElements(By.cssSelector("[data-testid='footer-clear-completed']")).size();
