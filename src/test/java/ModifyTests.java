@@ -1,5 +1,5 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.openqa.selenium.By;
@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ModifyTests {
 
-    private static ChromeDriver driver;
+    private ChromeDriver driver;
 
-    @BeforeAll
-    static void launchBrowser() {
+    @BeforeEach
+    void launchBrowser() {
         driver = new ChromeDriver();
     }
 
@@ -84,7 +84,13 @@ public class ModifyTests {
         updatedItem.sendKeys(Keys.DELETE);
         updatedItem.sendKeys(Keys.ENTER);
 
-        assertEquals(0, driver.findElements(By.cssSelector("[data-testid='todo-item-label']")).size());
+        Thread.sleep(1000);
+
+        int itemCount = driver.findElements(
+                By.cssSelector("[data-testid='todo-item-label']")
+        ).size();
+
+        assertEquals(0, itemCount);
     }
 
     @Test
@@ -114,8 +120,8 @@ public class ModifyTests {
         assertEquals("test123", modifiedItem.getText());
     }
 
-    @AfterAll
-    static void closeBrowser() {
+    @AfterEach
+    void closeBrowser() {
         driver.quit();
     }
 }
