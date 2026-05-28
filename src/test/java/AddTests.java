@@ -15,15 +15,15 @@ public class AddTests {
     public void addSingleItemTest() throws Exception {
         TodoPage page = new TodoPage(driver).navigate();
         page.addItem("test");
-        assertEquals("test", page.getItemText());
+        assertEquals("test", page.getItemText(1));
     }
 
     @Test
     public void addMultipleItemsTest() throws Exception {
         TodoPage page = new TodoPage(driver).navigate();
-        int itemNumber = 10;
-        page.addMultipleItems(itemNumber);
-        assertEquals(itemNumber, page.getNumberOfItems());
+        int numberOfItems = 10;
+        page.addMultipleItems(numberOfItems);
+        assertEquals(numberOfItems, page.getNumberOfItems());
     }
 
     @AfterEach
