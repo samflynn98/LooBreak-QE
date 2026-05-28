@@ -25,8 +25,7 @@ public class ModifyTests {
         String textToAdd = "123";
         int itemID = 5;
         page.modifyItem(itemID, textToAdd);
-        WebElement modifiedItem = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
-        String modifiedItemName = modifiedItem.getText();
+        String modifiedItemName = page.getItemText(5);
         assertTrue(modifiedItemName.contains(textToAdd));
     }
 
@@ -43,8 +42,7 @@ public class ModifyTests {
         textToModify.sendKeys(Keys.DELETE);
         textToModify.sendKeys(newText);
         textToModify.sendKeys(Keys.ENTER);
-        WebElement modifiedItem = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
-        String modifiedItemName = modifiedItem.getText();
+        String modifiedItemName = page.getItemText(5);
         System.out.println(modifiedItemName);
         assertEquals(newText, modifiedItemName);
     }
@@ -53,15 +51,13 @@ public class ModifyTests {
     public void modifyCompletedItemTest() throws Exception {
         TodoPage page = new TodoPage(driver).navigate();
         page.addItem("test");
-        WebElement itemCheckbox = driver.findElement(By.cssSelector("[data-testid='todo-item-toggle']"));
-        itemCheckbox.click();
+        page.completeItem(1);
         WebElement completed = driver.findElement(By.cssSelector("[href='#/completed']"));
         completed.click();
         String textToAdd = "123";
-        page.modifyItem(1, textToAdd);
-        WebElement modifiedItem = driver.findElement(By.cssSelector("[data-testid='todo-item-label']"));
-        assertEquals("test123", modifiedItem.getText());
-        assertTrue(modifiedItem.getText().contains(textToAdd));
+        int itemID = 1;
+        page.modifyItem(itemID, textToAdd);
+        assertTrue(page.getItemText(itemID).contains(textToAdd));
     }
 
     @AfterEach

@@ -14,9 +14,9 @@ public class DeleteTests {
     @Test
     public void deleteMultipleItemsTest() throws Exception {
         TodoPage page = new TodoPage(driver).navigate();
-        int numberOfItemsToAdd = 1;
+        int numberOfItemsToAdd = 10;
         page.addMultipleItems(numberOfItemsToAdd);
-        int numberOfItemsToDelete = 1;
+        int numberOfItemsToDelete = 5;
         page.deleteMultipleItems(numberOfItemsToDelete);
         assertEquals((numberOfItemsToAdd-numberOfItemsToDelete), page.getNumberOfItems());
     }
