@@ -85,18 +85,9 @@ public class TodoPage {
         }
     }
 
-    public void completeItem(int itemNumber) {
-        driver.findElement(
-                By.cssSelector("li:nth-child(" + itemNumber + ") [data-testid='todo-item-toggle']")
-
-        ).click();
-    }
-
     public String getItemText(int itemID) {
         return driver.findElement(By.cssSelector("li:nth-child(" + (itemID) + ") label")).getText();
     }
 
-    public int getNumberOfItems() {
-        return driver.findElements(By.cssSelector("[data-testid='todo-item-label']")).size();
-    }
+
 }
