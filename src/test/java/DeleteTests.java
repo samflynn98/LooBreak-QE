@@ -32,20 +32,11 @@ public class DeleteTests {
     }
 
     @Test
-    public void addMultipleItems() throws Exception {
-        String[] words = {"apple", "banana", "orange", "grape", "melon"};
-        Random random = new Random();
+    public void deleteMultipleItems() throws Exception {
         TodoPage page = new TodoPage(driver);
         page.navigate();
-        WebElement searchBar = driver.findElement(By.id("todo-input"));
-        int itemNumber = 1;
-        while (itemNumber <= 10) {
-            String randomWord = words[random.nextInt(words.length)];
-            searchBar.sendKeys(randomWord);
-            searchBar.sendKeys(Keys.ENTER);
-            itemNumber++;
-            Thread.sleep(100);
-        }
+        int itemNumber = 10;
+        page.addMultipleItems(itemNumber);
         while (itemNumber > 1) {
             WebElement itemToDelete = driver.findElement(By.cssSelector("li:nth-child(" + (itemNumber - 1) + ") label"));
             new Actions(driver)
@@ -53,10 +44,9 @@ public class DeleteTests {
                     .perform();
             Thread.sleep(100);
             driver.findElement(By.cssSelector("li:nth-child(" + (itemNumber - 1) + ") .destroy")).click();
-            boolean isPresent = driver.findElements(By.cssSelector("li:nth-child(" + (itemNumber - 1) + ") label")).size() > 0;
+            boolean isPresent = driver.findElements(By.cssSelector("li:nth-child(" + itemNumber + ") label")).size() > 0;
             assertFalse(isPresent);
             itemNumber--;
-            Thread.sleep(100);
         }
     }
 

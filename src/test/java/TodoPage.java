@@ -2,8 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Random;
 
 public class TodoPage {
     protected WebDriver driver;
@@ -20,5 +19,18 @@ public class TodoPage {
         WebElement searchBar = driver.findElement(By.id("todo-input"));
         searchBar.sendKeys(text);
         searchBar.sendKeys(Keys.ENTER);
+    }
+
+    public void addMultipleItems(int itemNumber) {
+        String[] words = {"apple", "banana", "orange", "grape", "melon"};
+        Random random = new Random();
+        WebElement searchBar = driver.findElement(By.id("todo-input"));
+        int i = 1;
+        while (i <= itemNumber) {
+            String randomWord = words[random.nextInt(words.length)];
+            searchBar.sendKeys(randomWord);
+            searchBar.sendKeys(Keys.ENTER);
+            i++;
+        }
     }
 }
