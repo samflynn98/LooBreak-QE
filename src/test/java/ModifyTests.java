@@ -21,16 +21,12 @@ public class ModifyTests {
     }
 
     @Test
-    public void modifyItem() throws Exception {
+    public void modifySingleItemTest() throws Exception {
 
         TodoPage page = new TodoPage(driver);
         page.navigate();
 
-        WebElement searchBar =
-                driver.findElement(By.id("todo-input"));
-
-        searchBar.sendKeys("test");
-        searchBar.sendKeys(Keys.ENTER);
+        page.addItem("test");
 
         WebElement item =
                 driver.findElement(

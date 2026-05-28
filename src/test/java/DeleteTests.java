@@ -18,11 +18,10 @@ public class DeleteTests {
     }
 
     @Test
-    public void deleteItem() throws Exception {
+    public void deleteSingleItemTest() throws Exception {
         TodoPage page = new TodoPage(driver);
         page.navigate();
-        driver.findElement(By.id("todo-input")).sendKeys("test");
-        driver.findElement(By.id("todo-input")).sendKeys(Keys.ENTER);
+        page.addItem("test");
         WebElement itemToDelete = driver.findElement(By.cssSelector("[data-testid='todo-item-label']"));
         new Actions(driver)
                 .moveToElement(itemToDelete)

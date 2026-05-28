@@ -13,12 +13,10 @@ public class AddTests {
     }
 
     @Test
-    public void addItem() throws Exception {
+    public void addSingleItemTest() throws Exception {
         TodoPage page = new TodoPage(driver);
         page.navigate();
-        WebElement searchBar = driver.findElement(By.id("todo-input"));
-        searchBar.sendKeys("test");
-        searchBar.sendKeys(Keys.ENTER);
+        page.addItem("test");
         WebElement item = driver.findElement(By.cssSelector("[data-testid='todo-item-label']"));
         String itemName = item.getText();
         assertEquals(itemName, "test");
