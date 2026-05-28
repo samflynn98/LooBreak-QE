@@ -2,7 +2,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.Random;
 
 public class AddTests {
     private ChromeDriver driver;

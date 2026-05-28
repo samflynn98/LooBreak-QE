@@ -2,8 +2,6 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class StatusTests {
 
     private ChromeDriver driver;

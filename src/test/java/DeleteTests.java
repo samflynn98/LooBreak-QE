@@ -18,8 +18,7 @@ public class DeleteTests {
         page.addMultipleItems(numberOfItemsToAdd);
         int numberOfItemsToDelete = 1;
         page.deleteMultipleItems(numberOfItemsToDelete);
-        int actualNumberOfItems = driver.findElements(By.cssSelector("[data-testid='todo-item-label']")).size();
-        assertEquals((numberOfItemsToAdd-numberOfItemsToDelete), actualNumberOfItems);
+        assertEquals((numberOfItemsToAdd-numberOfItemsToDelete), page.getNumberOfItems());
     }
 
     @Test
