@@ -18,10 +18,7 @@ public class StatusTests {
 
         TodoPage page = new TodoPage(driver);
         page.navigate();
-
-        WebElement searchBar = driver.findElement(By.id("todo-input"));
-        searchBar.sendKeys("test");
-        searchBar.sendKeys(Keys.ENTER);
+        page.addItem("test");
 
         WebElement checkbox = driver.findElement(By.cssSelector("[data-testid='todo-item-toggle']"));
 
@@ -38,10 +35,7 @@ public class StatusTests {
 
         TodoPage page = new TodoPage(driver);
         page.navigate();
-
-        WebElement searchBar = driver.findElement(By.id("todo-input"));
-        searchBar.sendKeys("test");
-        searchBar.sendKeys(Keys.ENTER);
+        page.addItem("test");
 
         driver.findElement(By.cssSelector("[data-testid='todo-item-toggle']")
 
@@ -58,11 +52,7 @@ public class StatusTests {
         TodoPage page = new TodoPage(driver);
         page.navigate();
 
-        WebElement searchBar = driver.findElement(By.id("todo-input"));
-        searchBar.sendKeys("test1");
-        searchBar.sendKeys(Keys.ENTER);
-        searchBar.sendKeys("test2");
-        searchBar.sendKeys(Keys.ENTER);
+        page.addMultipleItems(2);
 
         driver.findElement(By.cssSelector("[data-testid='todo-item-toggle']")).click();
 

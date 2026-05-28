@@ -22,12 +22,9 @@ public class DeleteTests {
         TodoPage page = new TodoPage(driver);
         page.navigate();
         page.addItem("test");
-        WebElement itemToDelete = driver.findElement(By.cssSelector("[data-testid='todo-item-label']"));
-        new Actions(driver)
-                .moveToElement(itemToDelete)
-                .perform();
-        driver.findElement(By.cssSelector(".destroy")).click();
-        boolean isPresent = driver.findElements(By.cssSelector("[data-testid='todo-item-label']")).size() > 0;
+        int itemID = 1;
+        page.deleteItem(itemID);
+        boolean isPresent = driver.findElements(By.cssSelector("li:nth-child(" + itemID + ") label")).size() > 0;
         assertFalse(isPresent);
     }
 
