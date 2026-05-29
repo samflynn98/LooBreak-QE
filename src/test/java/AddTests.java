@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AddTests {
     private WebDriver driver;
-    String browser = "chrome";
+    String browser = "firefox";
 
     @BeforeEach
     void launchBrowser() {

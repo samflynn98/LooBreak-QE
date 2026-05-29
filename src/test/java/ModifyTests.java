@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +13,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class ModifyTests {
     private WebDriver driver;
-    String browser = "chrome";
+    String browser = "firefox";
 
     @BeforeEach
     void launchBrowser() {

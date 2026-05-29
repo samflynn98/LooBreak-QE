@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StatusTests {
     private WebDriver driver;
-    String browser = "safari";
+    String browser = "firefox";
 
     @BeforeEach
     void launchBrowser() {

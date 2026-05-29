@@ -53,11 +53,9 @@ public class TodoPage {
     }
 
     public void completeItem(int itemNumber) {
-
-        driver.findElement(
-                By.cssSelector("li:nth-child(" + itemNumber + ") [data-testid='todo-item-toggle']")
-        ).click();
+        driver.findElement(By.cssSelector("li:nth-child(" + itemNumber + ") [data-testid='todo-item-toggle']")).click();
     }
+
     public void modifyItem(int itemID, String textToAdd) {
             WebElement itemToModify = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
             new Actions(driver)
@@ -67,13 +65,7 @@ public class TodoPage {
             textToModify.sendKeys(textToAdd);
             textToModify.sendKeys(Keys.ENTER);
     }
-    public void deleteItem(int itemID) {
-        WebElement itemToDelete = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
-        new Actions(driver)
-                .moveToElement(itemToDelete)
-                .perform();
-        driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") .destroy")).click();
-    }
+
     public void deleteMultipleItems(int numberOfItems) {
         while (numberOfItems >= 1) {
             WebElement itemToDelete = driver.findElement(By.cssSelector("li:nth-child(" + (numberOfItems) + ") label"));
@@ -90,25 +82,18 @@ public class TodoPage {
     }
 
     public void replaceItemText(int itemID, String newText) {
-        WebElement itemToModify =
-                driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
-
+        WebElement itemToModify = driver.findElement(By.cssSelector("li:nth-child(" + itemID + ") label"));
         new Actions(driver)
                 .doubleClick(itemToModify)
                 .perform();
-
-        WebElement textToModify =
-                driver.findElement(By.cssSelector(".input-container:nth-child(1) > #todo-input"));
-
+        WebElement textToModify = driver.findElement(By.cssSelector(".input-container:nth-child(1) > #todo-input"));
         textToModify.sendKeys(Keys.COMMAND + "a");
         textToModify.sendKeys(Keys.DELETE);
         textToModify.sendKeys(newText);
         textToModify.sendKeys(Keys.ENTER);
     }
-    public String getStatusText() {
-        return driver.findElement(
-                By.cssSelector(".todo-count")
-        ).getText();
-    }
 
+    public String getStatusText() {
+        return driver.findElement(By.cssSelector(".todo-count")).getText();
+    }
 }
