@@ -24,6 +24,7 @@ public class ModifyTests {
         } else if (browser.equals("safari")) {
             driver = new SafariDriver();
         }
+        driver.manage().window().maximize();
     }
 
     @Test

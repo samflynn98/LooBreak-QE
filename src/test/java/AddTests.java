@@ -18,6 +18,7 @@ public class AddTests {
         } else if (browser.equals("safari")) {
             driver = new SafariDriver();
         }
+        driver.manage().window().maximize();
     }
 
     @Test
@@ -50,7 +51,7 @@ public class AddTests {
             Thread.sleep(2000);
             assertEquals(emojis, page.getItemText(1));
         }
-        else System.out.println("Test not supported in Chrome");
+        else System.out.println("Emoji test not supported in Chrome");
     }
 
     @Test
