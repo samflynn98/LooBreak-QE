@@ -1,14 +1,23 @@
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DeleteTests {
-    private ChromeDriver driver;
+    private WebDriver driver;
+    String browser = "safari";
 
     @BeforeEach
     void launchBrowser() {
-        driver = new ChromeDriver();
+        if (browser.equals("chrome")) {
+            driver = new ChromeDriver();
+        } else if (browser.equals("firefox")) {
+            driver = new FirefoxDriver();
+        } else if (browser.equals("safari")) {
+            driver = new SafariDriver();
+        }
     }
 
     @Test

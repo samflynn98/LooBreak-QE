@@ -1,21 +1,28 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class ModifyTests {
-
-    private ChromeDriver driver;
+    private WebDriver driver;
+    String browser = "safari";
 
     @BeforeEach
     void launchBrowser() {
-        driver = new ChromeDriver();
+        if (browser.equals("chrome")) {
+            driver = new ChromeDriver();
+        } else if (browser.equals("firefox")) {
+            driver = new FirefoxDriver();
+        } else if (browser.equals("safari")) {
+            driver = new SafariDriver();
+        }
     }
 
     @Test
