@@ -1,6 +1,4 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class Homepage {
     protected WebDriver driver;
@@ -14,8 +12,8 @@ public class Homepage {
         return this;
     }
 
-    public void get_title() {
+    public String get_title() {
         String title = driver.getTitle();
-        System.out.println(title);
+        return title;
     }
 }

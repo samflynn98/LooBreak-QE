@@ -25,7 +25,7 @@ public class Example_Tests {
     @Test
     public void getHomepageTitle() throws Exception {
         Homepage page = new Homepage(driver).navigate();
-        page.get_title();
+        assertEquals("LooBreak", page.get_title());
     }
 
     @AfterEach
