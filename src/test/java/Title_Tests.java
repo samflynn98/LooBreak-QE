@@ -5,9 +5,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Example_Tests {
+public class Title_Tests {
     private WebDriver driver;
-    String browser = "chrome";
+    String browser = "safari";
     String browserMode = "mobile"; //to do: add mobile mode
 
     @BeforeEach
