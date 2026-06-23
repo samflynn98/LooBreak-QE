@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Example_Tests {
     private WebDriver driver;
     String browser = "chrome";
-    String browserMode = "mobile"
+    String browserMode = "mobile";
 
     @BeforeEach
     void launchBrowser() {
@@ -25,7 +25,11 @@ public class Example_Tests {
     @Test
     public void addSingleItemTest() throws Exception {
         Homepage page = new Homepage(driver).navigate();
-        page.example("test");
-        assertEquals("test", "test");
+        page.get_title();
+    }
+
+    @AfterEach
+    void closeBrowser() {
+        driver.quit();
     }
 }

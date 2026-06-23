@@ -10,12 +10,12 @@ public class Homepage {
     }
 
     public Homepage navigate() {
-        driver.get("URL");
+        driver.get("http://localhost:5173/");
         return this;
     }
 
-    public void example(String text) {
-        WebElement element = driver.findElement(By.id("example"));
-        element.sendKeys(text);
+    public void get_title() {
+        String title = driver.getTitle();
+        System.out.println(title);
     }
 }
