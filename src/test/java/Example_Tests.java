@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Example_Tests {
     private WebDriver driver;
     String browser = "chrome";
-    String browserMode = "mobile";
+    String browserMode = "mobile"; //to do: add mobile mode
 
     @BeforeEach
     void launchBrowser() {
