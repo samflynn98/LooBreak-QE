@@ -14,7 +14,6 @@ public class Title_Tests {
 
     @Test
     public void getHomepageTitle() throws Exception {
-        Thread.sleep(2000);
         Homepage page = new Homepage(driver).navigate();
         assertEquals("LooBreak", page.get_title());
     }
