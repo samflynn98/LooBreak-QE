@@ -22,6 +22,13 @@ public class Navigation_Tests {
         assertEquals("http://localhost:5173/quiz", driver.getCurrentUrl());
     }
 
+    @Test
+    public void canNavigateToNextQuizQuestion() throws Exception {
+        Quiz_Page page = new Quiz_Page(driver).navigate();
+        Thread.sleep(2000);
+        page.goToNextQuestion();
+    }
+
     @AfterEach
     void closeBrowser() {
         driver.quit();

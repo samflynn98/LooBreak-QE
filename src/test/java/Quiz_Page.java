@@ -23,4 +23,9 @@ public class Quiz_Page {
         WebElement heading = driver.findElement(By.tagName("h2"));
         return heading.getText();
     }
+
+    public void goToNextQuestion() {
+        driver.findElement(By.cssSelector(".feed > button")).click();
+    }
+
 }
