@@ -28,4 +28,9 @@ public class Quiz_Page {
         driver.findElement(By.cssSelector(".feed > button")).click();
     }
 
+    public String getQuestionNumber() {
+        String QuestionNum = driver.findElement(By.cssSelector("h3")).getText();
+        return QuestionNum;
+    }
+
 }
