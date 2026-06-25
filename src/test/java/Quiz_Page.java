@@ -14,7 +14,7 @@ public class Quiz_Page {
         return this;
     }
 
-    public String get_title() {
+    public String getTitle() {
         String title = driver.getTitle();
         return title;
     }

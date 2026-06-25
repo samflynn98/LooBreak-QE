@@ -11,21 +11,15 @@ public class Navigation_Tests {
     @BeforeEach
     void launchBrowser() {
         Browser_Config config = new Browser_Config();
-        driver = config.BrowserSelect("firefox");
-        config.windowMode("portrait");
+        driver = config.BrowserSelect("chrome");
+        config.windowMode("maximize");
     }
 
     @Test
-    public void navigateToQuizPage() throws Exception {
+    public void canNavigateToQuizPageFromHomepage() throws Exception {
         Homepage page = new Homepage(driver).navigate();
         page.navigateToPage("quiz").click();
         assertEquals("http://localhost:5173/quiz", driver.getCurrentUrl());
-    }
-
-    @Test
-    public void homepageWelcomeHeading() throws Exception {
-        Homepage page = new Homepage(driver).navigate();
-        assertEquals("Welcome to LooBreak!", page.getHeadingText());
     }
 
     @AfterEach

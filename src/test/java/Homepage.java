@@ -19,7 +19,7 @@ public class Homepage {
         return newPage;
     }
 
-    public String get_title() {
+    public String getTitle() {
         String title = driver.getTitle();
         return title;
     }

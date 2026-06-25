@@ -8,26 +8,32 @@ public class Title_Tests {
     @BeforeEach
     void launchBrowser() {
         Browser_Config config = new Browser_Config();
-        driver = config.BrowserSelect("firefox");
-        config.windowMode("portrait");
+        driver = config.BrowserSelect("chrome");
+        config.windowMode("maximize");
     }
 
     @Test
-    public void getHomepageTitle() throws Exception {
+    public void homepageTitleCorrect() throws Exception {
         Homepage page = new Homepage(driver).navigate();
-        assertEquals("LooBreak", page.get_title());
+        assertEquals("LooBreak", page.getTitle());
     }
 
     @Test
-    public void getQuizTitle() throws Exception {
+    public void quizTitleCorrect() throws Exception {
         Quiz_Page page = new Quiz_Page(driver).navigate();
-        assertEquals("LooBreak", page.get_title()); //should each page have different title?
+        assertEquals("LooBreak", page.getTitle()); //should each page have different title?
     }
 
     @Test
-    public void quizPageShowsQuizHeading() {
+    public void quizPageShowsHeading() {
         Quiz_Page page = new Quiz_Page(driver).navigate();
         assertEquals("Quiz", page.getHeadingText());
+    }
+
+    @Test
+    public void homepageShowsHeading() throws Exception {
+        Homepage page = new Homepage(driver).navigate();
+        assertEquals("Welcome to LooBreak!", page.getHeadingText());
     }
 
     @AfterEach
