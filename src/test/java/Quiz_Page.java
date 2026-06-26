@@ -33,4 +33,13 @@ public class Quiz_Page {
         return QuestionNum;
     }
 
+    public String getQuestion() {
+        String question = driver.findElement(By.tagName("p")).getText();
+        return question;
+    }
+
+    public WebElement getAnswer(int id) {
+        WebElement answer = driver.findElement(By.cssSelector("button:nth-child(" + id + ")"));
+        return answer;
+    }
 }

@@ -2,7 +2,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Navigation_Tests {
@@ -45,6 +44,19 @@ public class Navigation_Tests {
         assertEquals("Question 9:", page.getQuestionNumber());
         page.goToNextQuestion();
         assertEquals("Question 10:", page.getQuestionNumber());
+    }
+
+    @Test
+    public void getAnswerText() throws Exception {
+        Quiz_Page page = new Quiz_Page(driver).navigate();
+        Thread.sleep(2000);
+        String q = page.getQuestion();
+        String ans1 = page.getAnswer(1).getText();
+        String ans2 = page.getAnswer(2).getText();
+        String ans3 = page.getAnswer(3).getText();
+        String ans4 = page.getAnswer(4).getText();
+        System.out.println(q);
+        System.out.println(ans1 + ans2 + ans3 + ans4);
     }
 
     @AfterEach

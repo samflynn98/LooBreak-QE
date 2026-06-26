@@ -28,6 +28,4 @@ public class Homepage {
         WebElement heading = driver.findElement(By.tagName("h1"));
         return heading.getText();
     }
-
-
 }
