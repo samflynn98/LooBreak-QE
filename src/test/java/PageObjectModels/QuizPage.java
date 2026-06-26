@@ -1,15 +1,17 @@
+package PageObjectModels;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Quiz_Page {
+public class QuizPage {
     protected WebDriver driver;
 
-    public Quiz_Page(WebDriver driver) {
+    public QuizPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public Quiz_Page navigate() {
+    public QuizPage navigate() {
         driver.get("http://localhost:5173/quiz");
         return this;
     }

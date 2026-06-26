@@ -1,16 +1,18 @@
+package PageObjectModels;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Leaderboard_Page {
+public class ResultsPage {
     protected WebDriver driver;
 
-    public Leaderboard_Page(WebDriver driver) {
+    public ResultsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public Leaderboard_Page navigate() {
-        driver.get("http://localhost:5173/leaderboard");
+    public ResultsPage navigate() {
+        driver.get("http://localhost:5173/results");
         return this;
     }
 

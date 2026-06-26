@@ -1,20 +1,24 @@
+import PageObjectModels.BrowserConfig;
+import PageObjectModels.Homepage;
+import PageObjectModels.Navbar;
+import PageObjectModels.QuizPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Navigation_Tests {
+public class NavigationTests {
     private WebDriver driver;
 
     @BeforeEach
     void launchBrowser() {
-        Browser_Config config = new Browser_Config();
+        BrowserConfig config = new BrowserConfig();
         driver = config.BrowserSelect("chrome");
         config.windowMode("maximize");
     }
 
-    //Navbar tests
+    //PageObjectModels.Navbar tests
     @Test
     public void canGoToPageFromNavbar() throws Exception {
         Homepage page = new Homepage(driver);
@@ -29,7 +33,7 @@ public class Navigation_Tests {
         assertEquals("http://localhost:5173/", driver.getCurrentUrl());
     }
 
-    //Homepage tests
+    //PageObjectModels.Homepage tests
     @Test
     public void canNavigateToQuizPageFromHomepage() throws Exception {
         Homepage page = new Homepage(driver).navigate();
@@ -47,7 +51,7 @@ public class Navigation_Tests {
     //Quiz page tests
     @Test
     public void canNavigateToNextQuizQuestion() throws Exception {
-        Quiz_Page page = new Quiz_Page(driver).navigate();
+        QuizPage page = new QuizPage(driver).navigate();
         Thread.sleep(2000);
         assertEquals("Question 1:", page.getQuestionNumber());
         page.answerQuestion(1);
@@ -58,7 +62,7 @@ public class Navigation_Tests {
 
     @Test
     public void getAnswerText() throws Exception {
-        Quiz_Page page = new Quiz_Page(driver).navigate();
+        QuizPage page = new QuizPage(driver).navigate();
         Thread.sleep(2000);
         String q = page.getScore();
         String ans1 = page.getAnswer(1).getText();

@@ -1,10 +1,12 @@
+package PageObjectModels;
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class Browser_Config {
+public class BrowserConfig {
     protected WebDriver driver;
 
     public WebDriver BrowserSelect(String browser) {
