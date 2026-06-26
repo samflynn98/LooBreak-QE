@@ -25,6 +25,18 @@ public class Title_Tests {
     }
 
     @Test
+    public void leaderboardTitleCorrect() throws Exception {
+        Leaderboard_Page page = new Leaderboard_Page(driver).navigate();
+        assertEquals("LooBreak", page.getTitle()); //should each page have different title?
+    }
+
+    @Test
+    public void homepageShowsHeading() throws Exception {
+        Homepage page = new Homepage(driver).navigate();
+        assertEquals("Welcome to LooBreak!", page.getHeadingText());
+    }
+
+    @Test
     public void quizPageShowsHeading() throws Exception {
         Quiz_Page page = new Quiz_Page(driver).navigate();
         Thread.sleep(2000);
@@ -32,9 +44,10 @@ public class Title_Tests {
     }
 
     @Test
-    public void homepageShowsHeading() throws Exception {
-        Homepage page = new Homepage(driver).navigate();
-        assertEquals("Welcome to LooBreak!", page.getHeadingText());
+    public void leaderboardPageShowsHeading() throws Exception {
+        Leaderboard_Page page = new Leaderboard_Page(driver).navigate();
+        Thread.sleep(2000);
+        assertEquals("Leaderboard", page.getHeadingText());
     }
 
     @AfterEach
