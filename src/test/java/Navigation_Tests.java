@@ -14,6 +14,22 @@ public class Navigation_Tests {
         config.windowMode("maximize");
     }
 
+    //Navbar tests
+    @Test
+    public void canGoToPageFromNavbar() throws Exception {
+        Homepage page = new Homepage(driver);
+        page.navigate();
+        Navbar navbar = new Navbar(driver);
+        navbar.goToNavbarPage("Quiz");
+        assertEquals("http://localhost:5173/quiz", driver.getCurrentUrl());
+        Thread.sleep(2000);
+        navbar.goToNavbarPage("Leaderboard");
+        assertEquals("http://localhost:5173/leaderboard", driver.getCurrentUrl());
+        navbar.goToNavbarPage("Home");
+        assertEquals("http://localhost:5173/", driver.getCurrentUrl());
+    }
+
+    //Homepage tests
     @Test
     public void canNavigateToQuizPageFromHomepage() throws Exception {
         Homepage page = new Homepage(driver).navigate();
@@ -21,6 +37,14 @@ public class Navigation_Tests {
         assertEquals("http://localhost:5173/quiz", driver.getCurrentUrl());
     }
 
+    @Test
+    public void canNavigateToLeaderboardPageFromHomepage() throws Exception {
+        Homepage page = new Homepage(driver).navigate();
+        page.navigateToPage("leaderboard").click();
+        assertEquals("http://localhost:5173/leaderboard", driver.getCurrentUrl());
+    }
+
+    //Quiz page tests
     @Test
     public void canNavigateToNextQuizQuestion() throws Exception {
         Quiz_Page page = new Quiz_Page(driver).navigate();
