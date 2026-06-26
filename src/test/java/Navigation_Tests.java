@@ -74,7 +74,7 @@ public class Navigation_Tests {
     public void getAnswerText() throws Exception {
         Quiz_Page page = new Quiz_Page(driver).navigate();
         Thread.sleep(2000);
-        String q = page.getQuestion();
+        String q = page.getScore();
         String ans1 = page.getAnswer(1).getText();
         String ans2 = page.getAnswer(2).getText();
         String ans3 = page.getAnswer(3).getText();

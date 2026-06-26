@@ -33,7 +33,7 @@ public class Quiz_Page {
         return QuestionNum;
     }
 
-    public String getQuestion() {
+    public String getScore() {
         String question = driver.findElement(By.tagName("p")).getText();
         return question;
     }
