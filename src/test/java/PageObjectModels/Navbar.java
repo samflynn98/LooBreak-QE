@@ -9,7 +9,12 @@ public class Navbar {
     public Navbar(WebDriver driver) {
         this.driver = driver;
     }
+
     public void goToNavbarPage(String page) {
         driver.findElement(By.linkText(page)).click();
+    }
+
+    public void toggleDarkMode() {
+        driver.findElement(By.cssSelector("button:nth-child(5)")).click();
     }
 }
