@@ -1,13 +1,9 @@
 import PageObjectModels.BrowserConfig;
-import PageObjectModels.Homepage;
-import PageObjectModels.Navbar;
 import PageObjectModels.QuizPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,6 +24,7 @@ public class QuizTests {
         page.navigate();
         int correctAnswers = 0;
         for (int i = 1; i < 20; i++) {
+            Thread.sleep(100);
             assertTrue(page.getScore().contains(Integer.toString(correctAnswers)));
             Random rand = new Random();
             int nextRandom = rand.nextInt(1, 5);
