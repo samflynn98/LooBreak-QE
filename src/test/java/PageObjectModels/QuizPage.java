@@ -44,8 +44,8 @@ public class QuizPage {
     }
 
     public String getScore() {
-        String question = driver.findElement(By.tagName("p")).getText();
-        return question;
+        String score = driver.findElement(By.cssSelector("p:nth-child(4)")).getText();
+        return score;
     }
 
     public WebElement getAnswer(int id) {

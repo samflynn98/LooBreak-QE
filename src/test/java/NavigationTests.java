@@ -60,19 +60,6 @@ public class NavigationTests {
         assertEquals("Question 2:", page.getQuestionNumber());
     }
 
-    @Test
-    public void getAnswerText() throws Exception {
-        QuizPage page = new QuizPage(driver).navigate();
-        Thread.sleep(2000);
-        String q = page.getScore();
-        String ans1 = page.getAnswer(1).getText();
-        String ans2 = page.getAnswer(2).getText();
-        String ans3 = page.getAnswer(3).getText();
-        String ans4 = page.getAnswer(4).getText();
-        System.out.println(q);
-        System.out.println(ans1 + ans2 + ans3 + ans4);
-    }
-
     @AfterEach
     void closeBrowser() {
         driver.quit();
