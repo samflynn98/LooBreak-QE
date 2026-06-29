@@ -15,7 +15,7 @@ public class NavigationTests {
     void launchBrowser() {
         BrowserConfig config = new BrowserConfig();
         driver = config.BrowserSelect("chrome");
-        config.windowMode("maximize");
+        config.windowMode("portrait");
     }
 
     //PageObjectModels.Navbar tests
@@ -58,6 +58,9 @@ public class NavigationTests {
         page.submitAnswer();
         page.goToNextQuestion();
         assertEquals("Question 2:", page.getQuestionNumber());
+    }
+
+    public void takeScreenshot(WebDriver driver, String image) {
     }
 
     @AfterEach

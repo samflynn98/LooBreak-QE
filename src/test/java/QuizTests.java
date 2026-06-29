@@ -15,7 +15,7 @@ public class QuizTests {
     void launchBrowser() {
         BrowserConfig config = new BrowserConfig();
         driver = config.BrowserSelect("chrome");
-        config.windowMode("maximize");
+        config.windowMode("portrait");
     }
 
     @Test
@@ -57,6 +57,9 @@ public class QuizTests {
             }
         }
         System.out.println("number correct: " + correctAnswers);
+    }
+
+    public void takeScreenshot(WebDriver driver, String image) {
     }
 
     @AfterEach

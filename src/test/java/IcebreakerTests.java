@@ -13,7 +13,7 @@ public class IcebreakerTests {
     void launchBrowser() {
         BrowserConfig config = new BrowserConfig();
         driver = config.BrowserSelect("chrome");
-        config.windowMode("maximize");
+        config.windowMode("portrait");
     }
 
     @Test
@@ -51,6 +51,9 @@ public class IcebreakerTests {
         }
         assertTrue(notUnique < 9);
         System.out.println("Number of repeated icebreakers: " + notUnique);
+    }
+
+    public void takeScreenshot(WebDriver driver, String image) {
     }
 
     @AfterEach

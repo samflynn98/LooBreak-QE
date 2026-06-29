@@ -10,7 +10,7 @@ public class TitleTests {
     void launchBrowser() {
         BrowserConfig config = new BrowserConfig();
         driver = config.BrowserSelect("chrome");
-        config.windowMode("maximize");
+        config.windowMode("portrait");
     }
 
     //Homepage
@@ -66,6 +66,9 @@ public class TitleTests {
         ResultsPage page = new ResultsPage(driver).navigate();
         Thread.sleep(2000);
         assertEquals("Your Results", page.getHeadingText());
+    }
+
+    public void takeScreenshot(WebDriver driver, String image) {
     }
 
     @AfterEach
