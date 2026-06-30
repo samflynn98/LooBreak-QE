@@ -30,20 +30,20 @@ public class DarkModeTests {
         Homepage page = new Homepage(driver);
         page.navigate();
         Navbar navbar = new Navbar(driver);
-        config.takeScreenshot(driver, "SafariDarkModeTest1.png");
-        Thread.sleep(3000);
+        //config.takeScreenshot(driver, "SafariDarkModeTest1.png");
+        Thread.sleep(100);
         navbar.toggleDarkMode();
-        config.takeScreenshot(driver, "SafariDarkModeTest2.png");
-        Thread.sleep(3000);
+        //config.takeScreenshot(driver, "SafariDarkModeTest2.png");
+        Thread.sleep(100);
         WebElement body = driver.findElement(By.tagName("body"));
         String darkColour = body.getCssValue("background-color");
         assertTrue(darkColour.contains("0, 0, 0"));
-        Thread.sleep(3000);
+        Thread.sleep(100);
         navbar.toggleDarkMode();
         String lightColour = body.getCssValue("background-color");
         assertTrue(lightColour.contains("255, 255, 255"));
-        Thread.sleep(3000);
-        config.takeScreenshot(driver, "SafariDarkModeTest3.png");
+        Thread.sleep(100);
+        //config.takeScreenshot(driver, "SafariDarkModeTest3.png");
     }
 
     @AfterEach
