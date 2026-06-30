@@ -31,11 +31,11 @@ public class QuizPage {
     }
 
     public void submitAnswer() {
-        driver.findElement(By.cssSelector(".feed > button")).click();
+        driver.findElement(By.cssSelector("div > button:nth-child(5)")).click();
     }
 
     public void goToNextQuestion() {
-        driver.findElement(By.cssSelector(".feed > button")).click();
+        driver.findElement(By.cssSelector("div > button:nth-child(5)")).click();
     }
 
     public String getQuestionNumber() {
@@ -44,7 +44,7 @@ public class QuizPage {
     }
 
     public String getScore() {
-        String score = driver.findElement(By.cssSelector("p:nth-child(4)")).getText();
+        String score = driver.findElement(By.cssSelector("p:nth-child(3)")).getText();
         return score;
     }
 

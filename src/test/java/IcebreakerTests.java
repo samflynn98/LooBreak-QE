@@ -11,10 +11,10 @@ public class IcebreakerTests {
     private BrowserConfig config;
 
     @BeforeEach
-    void launchBrowser() {
+    void launchBrowser() throws Exception{
         config = new BrowserConfig();
         BrowserConfig config = new BrowserConfig();
-        driver = config.BrowserSelect("chrome");
+        driver = config.BrowserSelect("safari");
         config.windowMode("portrait");
     }
 
