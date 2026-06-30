@@ -14,7 +14,7 @@ public class IcebreakerTests {
     void launchBrowser() throws Exception{
         config = new BrowserConfig();
         BrowserConfig config = new BrowserConfig();
-        driver = config.BrowserSelect("safari");
+        driver = config.BrowserSelect("chrome");
         config.windowMode("portrait");
     }
 

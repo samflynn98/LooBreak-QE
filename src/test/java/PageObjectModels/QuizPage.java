@@ -52,4 +52,15 @@ public class QuizPage {
         WebElement answer = driver.findElement(By.cssSelector("button:nth-child(" + id + ")"));
         return answer;
     }
+
+    //Results Sub Screen
+    public void generateUsername() {
+        driver.findElement(By.cssSelector("button:nth-child(3)")).click();
+    }
+
+    public String getUsername() {
+        WebElement playerNameInput = driver.findElement(By.name("playername"));
+        String username = playerNameInput.getAttribute("value");
+        return username;
+    }
 }

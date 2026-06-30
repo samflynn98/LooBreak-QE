@@ -62,6 +62,34 @@ public class QuizTests {
         System.out.println("number correct: " + correctAnswers);
     }
 
+    @Test
+    public void randomUsernamesUnique() throws Exception {
+        QuizPage page = new QuizPage(driver);
+        page.navigate();
+        for (int i = 1; i < 11; i++) {
+            Thread.sleep(100);
+            page.answerQuestion(1);
+            page.submitAnswer();
+            page.goToNextQuestion();
+        }
+        int notUnique = 0;
+        page.generateUsername();
+        String firstUsername = page.getUsername();
+        int i = 0;
+        while(i < 50) {
+            page.generateUsername();
+            Thread.sleep(100);
+            String currentUsername = page.getUsername();
+            System.out.println(currentUsername);
+            if (currentUsername.equals(firstUsername)) {
+                notUnique++;
+            }
+            i++;
+        }
+        System.out.println("Number of repeated usernames: " + notUnique);
+        assertTrue(notUnique < 50);
+    }
+
     @AfterEach
     void closeBrowser() {
         driver.quit();

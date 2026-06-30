@@ -39,7 +39,7 @@ public class Homepage {
     }
 
     public String getIcebreakerText() {
-        String icebreaker = driver.findElement(By.cssSelector(".\\_icebreakerText_1ti99_10")).getText();
+        String icebreaker = driver.findElement(By.className("_icebreakerText_mu8jj_10")).getText();
         return icebreaker;
     }
 
