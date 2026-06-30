@@ -47,6 +47,7 @@ public class QuizTests {
     public void scoreIncrementsCorrectly() throws Exception {
         QuizPage page = new QuizPage(driver);
         page.navigate();
+        Thread.sleep(200);
         int correctAnswers = 0;
         while (Objects.equals(page.getHeadingText(), "Quiz")) {
             Thread.sleep(100);
