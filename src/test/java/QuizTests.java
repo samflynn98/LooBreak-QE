@@ -59,6 +59,7 @@ public class QuizTests {
             if (answerColour.contains("0, 128, 0")) {
                 correctAnswers++;
             }
+            page.goToNextQuestion();
         }
         //config.takeScreenshot(driver, "QuizTest1.png");
         System.out.println("number correct: " + correctAnswers);
@@ -69,7 +70,6 @@ public class QuizTests {
         QuizPage page = new QuizPage(driver);
         page.navigate();
         while (Objects.equals(page.getHeadingText(), "Quiz")) {
-            Thread.sleep(100);
             page.answerQuestion(1);
             page.submitAnswer();
             page.goToNextQuestion();
@@ -88,7 +88,7 @@ public class QuizTests {
             i++;
         }
         System.out.println("Number of repeated usernames: " + notUnique);
-        assertTrue(notUnique < 50);
+        assertTrue(notUnique < 10);
     }
 
     @AfterEach
