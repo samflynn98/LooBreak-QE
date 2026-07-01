@@ -18,7 +18,7 @@ public class LeaderboardTests {
     void launchBrowser() {
         config = new BrowserConfig();
         BrowserConfig config = new BrowserConfig();
-        driver = config.BrowserSelect("firefox");
+        driver = config.BrowserSelect("chrome");
         config.windowMode("portrait");
     }
 
