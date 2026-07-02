@@ -32,23 +32,23 @@ public class QuizPage {
 
     //Question Answering
     public void answerQuestion(int id) {
-        driver.findElement(By.cssSelector("button:nth-child(" + id + ")")).click();
+        driver.findElement(By.cssSelector(".justify-center:nth-child(" + id + ")")).click();
     }
 
     public void submitAnswer() {
-        driver.findElement(By.cssSelector("div > button:nth-child(5)")).click();
+        driver.findElement(By.cssSelector(".bg-primary")).click();
     }
 
     public void goToNextQuestion() {
-        driver.findElement(By.cssSelector("div > button:nth-child(5)")).click();
+        driver.findElement(By.cssSelector(".bg-primary")).click();
     }
 
     public void answerAllQuestions() {
         QuizPage page = new QuizPage(driver);
         while (Objects.equals(page.getHeadingText(), "Quiz")) {
-            driver.findElement(By.cssSelector("button:nth-child(1)")).click();
-            driver.findElement(By.cssSelector("div > button:nth-child(5)")).click();
-            driver.findElement(By.cssSelector("div > button:nth-child(5)")).click();
+            driver.findElement(By.cssSelector(".justify-center:nth-child(1)")).click();
+            driver.findElement(By.cssSelector(".bg-primary")).click();
+            driver.findElement(By.cssSelector(".bg-primary")).click();
         }
     }
 
