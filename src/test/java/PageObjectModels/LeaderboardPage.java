@@ -23,7 +23,7 @@ public class LeaderboardPage {
     }
 
     public String getHeadingText() {
-        WebElement heading = driver.findElement(By.tagName("h2"));
+        WebElement heading = driver.findElement(By.xpath("//h1[text()='Leaderboard']"));
         return heading.getText();
     }
 

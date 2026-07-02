@@ -31,7 +31,7 @@ public class Homepage {
     }
 
     public String getHeadingText() {
-        WebElement heading = driver.findElement(By.tagName("h1"));
+        WebElement heading = driver.findElement(By.xpath("//h1[@data-testid='homepage-header']"));
         return heading.getText();
     }
 
@@ -70,7 +70,7 @@ public class Homepage {
     }
 
     public String getLootipText() {
-        String lootip = driver.findElement(By.className("_tipText_oj9jv_24")).getText();
+        String lootip = driver.findElement(By.className("_tipText_1iam4_24")).getText();
         return lootip;
     }
 }

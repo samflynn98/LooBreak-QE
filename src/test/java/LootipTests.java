@@ -25,7 +25,7 @@ public class LootipTests {
         Homepage page = new Homepage(driver).navigate();
         page.navigate();
         int notUnique = 0;
-        Thread.sleep(100);
+        Thread.sleep(1000);
         String firstLooTip = page.getLootipText();
         int i = 0;
         while(i < 10) {

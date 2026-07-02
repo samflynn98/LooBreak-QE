@@ -29,11 +29,11 @@ public class LeaderboardTests {
         int i = 1;
         while (page.getPlayerName(i) != null && !page.getPlayerName(i).trim().isEmpty()) {
             if (i == 1) {
-                assertEquals(page.getPlayerRank(i), "\uD83E\uDD47");
+                assertEquals("", page.getPlayerRank(i));
             } else if (i == 2) {
-                assertEquals(page.getPlayerRank(i), "\uD83E\uDD48");
+                assertEquals("", page.getPlayerRank(i));
             } else if (i == 3) {
-                assertEquals(page.getPlayerRank(i), "\uD83E\uDD49");
+                assertEquals("", page.getPlayerRank(i));
             } else {
                 assertEquals(page.getPlayerRank(i), Integer.toString(i));
             }

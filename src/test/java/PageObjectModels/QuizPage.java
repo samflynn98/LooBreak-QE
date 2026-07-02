@@ -3,7 +3,10 @@ package PageObjectModels;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Objects;
 
 public class QuizPage {
@@ -26,29 +29,41 @@ public class QuizPage {
     }
 
     public String getHeadingText() {
-        WebElement heading = driver.findElement(By.tagName("h2"));
+        WebElement heading = driver.findElement(By.xpath("//h1[text()='Quiz']"));
         return heading.getText();
     }
 
     //Question Answering
     public void answerQuestion(int id) {
-        driver.findElement(By.cssSelector(".justify-center:nth-child(" + id + ")")).click();
+        driver.findElement(By.cssSelector("button[data-slot='button']:nth-of-type(" + id + ")")).click();
     }
 
     public void submitAnswer() {
-        driver.findElement(By.cssSelector(".bg-primary")).click();
+        driver.findElement(By.xpath("//button[normalize-space(translate(., '\u00A0', ' '))='Submit']")).click();
     }
 
     public void goToNextQuestion() {
-        driver.findElement(By.cssSelector(".bg-primary")).click();
+        driver.findElement(By.cssSelector("button[data-testid='arrow-button']")).click();
     }
 
     public void answerAllQuestions() {
         QuizPage page = new QuizPage(driver);
-        while (Objects.equals(page.getHeadingText(), "Quiz")) {
-            driver.findElement(By.cssSelector(".justify-center:nth-child(1)")).click();
-            driver.findElement(By.cssSelector(".bg-primary")).click();
-            driver.findElement(By.cssSelector(".bg-primary")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // 1. Check if the element is present in the DOM first
+        while (!driver.findElements(By.xpath("//h1[text()='Quiz']")).isEmpty()) {
+
+            // 2. Select the first option
+            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[data-slot='button']:nth-of-type(1)"))).click();
+
+            // 3. Click Submit
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space(translate(., '\u00A0', ' '))='Submit']"))).click();
+
+            // 4. Click the Next Arrow
+            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[data-testid='arrow-button']"))).click();
+
+            // Short wait to allow the next question DOM transition to begin
+            try { Thread.sleep(500); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
         }
     }
 
@@ -70,7 +85,7 @@ public class QuizPage {
 
     //Results Sub Screen
     public void generatePlayername() {
-        driver.findElement(By.cssSelector("button:nth-child(3)")).click();
+        driver.findElement(By.cssSelector("button[data-testid='generate-button']")).click();
     }
 
     public void enterPlayername(String name) {
@@ -89,11 +104,11 @@ public class QuizPage {
     }
 
     public void submitPlayername() {
-        driver.findElement(By.cssSelector("form > button:nth-child(5)")).click();
+        driver.findElement(By.cssSelector("button[data-testid='submit-button']")).click();
     }
 
     public String getWarningMessage () {
-        String warning = driver.findElement(By.cssSelector("p:nth-child(5)")).getText();
+        String warning = driver.findElement(By.cssSelector("[data-testid='playername-error']")).getText();
         return warning;
     }
 }

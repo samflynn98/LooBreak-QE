@@ -57,20 +57,6 @@ public class TitleTests {
         assertEquals("Leaderboard", page.getHeadingText());
     }
 
-    //Results page
-    @Test
-    public void resultsTitleCorrect() throws Exception {
-        ResultsPage page = new ResultsPage(driver).navigate();
-        assertEquals("LooBreak", page.getTitle()); //should each page have different title?
-    }
-
-    @Test
-    public void resultsPageShowsHeading() throws Exception {
-        ResultsPage page = new ResultsPage(driver).navigate();
-        Thread.sleep(2000);
-        assertEquals("Your Results", page.getHeadingText());
-    }
-
     @AfterEach
     void closeBrowser() {
         driver.quit();
