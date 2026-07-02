@@ -1,6 +1,9 @@
 package PageObjectModels;
 
 import org.openqa.selenium.*;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
 
 public class Homepage {
@@ -32,18 +35,38 @@ public class Homepage {
         return heading.getText();
     }
 
-    //Icebreakers
+    // Icebreakers
+    public By icebreakerButton = By.cssSelector("[data-testid='icebreaker-reveal-btn']");
+    public By icebreakerList = By.cssSelector("[data-testid='icebreaker-list']");
+    public By icebreakerCloseButton = By.cssSelector("[data-slot='drawer-close']");
+
+    public boolean isIcebreakerVisible() {
+        for (WebElement element : driver.findElements(icebreakerList)) {
+            if (element.isDisplayed()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void showIcebreaker() {
-        driver.findElement(By.cssSelector(".hover\\3A bg-accent")).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        if (!isIcebreakerVisible()) {
+            wait.until(ExpectedConditions.elementToBeClickable(icebreakerButton)).click();
+        }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(icebreakerList));
     }
 
     public void hideIcebreaker() {
-        driver.findElement(By.cssSelector("[data-slot=drawer-close]")).getText();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        if (!driver.findElements(icebreakerCloseButton).isEmpty()) {
+            wait.until(ExpectedConditions.elementToBeClickable(icebreakerCloseButton)).click();
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(icebreakerList));
+        }
     }
 
     public String getIcebreakerText() {
-        String icebreaker = driver.findElement(By.className("space-y-4")).getText();
-        return icebreaker;
+        return driver.findElement(icebreakerList).getText();
     }
 
     public String getLootipText() {

@@ -15,7 +15,7 @@ public class IcebreakerTests {
         config = new BrowserConfig();
         BrowserConfig config = new BrowserConfig();
         driver = config.BrowserSelect("firefox");
-        config.windowMode("maximize");
+        config.windowMode("portrait");
     }
 
     @Test
