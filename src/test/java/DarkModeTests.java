@@ -37,11 +37,11 @@ public class DarkModeTests {
         Thread.sleep(100);
         WebElement body = driver.findElement(By.tagName("body"));
         String darkColour = body.getCssValue("background-color");
-        assertTrue(darkColour.contains("0, 0, 0"));
+        assertTrue(darkColour.contains("15, 21, 21"));
         Thread.sleep(100);
         navbar.toggleDarkMode();
         String lightColour = body.getCssValue("background-color");
-        assertTrue(lightColour.contains("255, 255, 255"));
+        assertTrue(lightColour.contains("253, 253, 252"));
         Thread.sleep(100);
         //config.takeScreenshot(driver, "SafariDarkModeTest3.png");
     }

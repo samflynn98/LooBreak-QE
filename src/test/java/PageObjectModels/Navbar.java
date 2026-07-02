@@ -15,6 +15,6 @@ public class Navbar {
     }
 
     public void toggleDarkMode() {
-        driver.findElement(By.className("_tipText_oj9jv_24")).click();
+        driver.findElement(By.className("icebreaker-list")).click();
     }
 }

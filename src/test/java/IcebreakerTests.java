@@ -14,8 +14,8 @@ public class IcebreakerTests {
     void launchBrowser() throws Exception{
         config = new BrowserConfig();
         BrowserConfig config = new BrowserConfig();
-        driver = config.BrowserSelect("chrome");
-        config.windowMode("portrait");
+        driver = config.BrowserSelect("firefox");
+        config.windowMode("maximize");
     }
 
     @Test
@@ -26,8 +26,8 @@ public class IcebreakerTests {
         assertThrows(org.openqa.selenium.NoSuchElementException.class, () -> {
             page.getIcebreakerText(); // This code block should throw the specified exception
         });
-        page.toggleIcebreaker();
-        Thread.sleep(100);
+        page.showIcebreaker();
+        Thread.sleep(1000);
         assertTrue(page.getIcebreakerText().length() > 0);
         //config.takeScreenshot(driver, "IcebreakerTest1.png");
     }
@@ -37,19 +37,19 @@ public class IcebreakerTests {
         Homepage page = new Homepage(driver).navigate();
         page.navigate();
         int notUnique = 0;
-        page.toggleIcebreaker();
-        Thread.sleep(100);
+        page.showIcebreaker();
+        Thread.sleep(1000);
         String firstIcebreaker = page.getIcebreakerText();
-        page.toggleIcebreaker();
+        page.showIcebreaker();
         int i = 0;
         while(i < 10) {
-            page.toggleIcebreaker();
-            Thread.sleep(100);
+            page.showIcebreaker();
+            Thread.sleep(1000);
             String currentIcebreaker = page.getIcebreakerText();
             if (currentIcebreaker.equals(firstIcebreaker)) {
                 notUnique++;
             }
-            page.toggleIcebreaker();
+            page.hideIcebreaker();
             i++;
         }
         assertTrue(notUnique < 9);

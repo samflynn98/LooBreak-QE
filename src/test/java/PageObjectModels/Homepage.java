@@ -1,8 +1,7 @@
 package PageObjectModels;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 
 public class Homepage {
     protected WebDriver driver;
@@ -34,12 +33,16 @@ public class Homepage {
     }
 
     //Icebreakers
-    public void toggleIcebreaker() {
-        driver.findElement(By.cssSelector("[data-testid='icebreaker-reveal-btn']")).click();
+    public void showIcebreaker() {
+        driver.findElement(By.cssSelector(".hover\\3A bg-accent")).click();
+    }
+
+    public void hideIcebreaker() {
+        driver.findElement(By.cssSelector("[data-slot=drawer-close]")).getText();
     }
 
     public String getIcebreakerText() {
-        String icebreaker = driver.findElement(By.className("_icebreakerText_mu8jj_10")).getText();
+        String icebreaker = driver.findElement(By.className("space-y-4")).getText();
         return icebreaker;
     }
 
