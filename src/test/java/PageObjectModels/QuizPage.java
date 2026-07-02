@@ -59,12 +59,12 @@ public class QuizPage {
     }
 
     public String getScore() {
-        String score = driver.findElement(By.cssSelector("p:nth-child(3)")).getText();
+        String score = driver.findElement(By.className("text-accent")).getText();
         return score;
     }
 
     public WebElement getAnswer(int id) {
-        WebElement answer = driver.findElement(By.cssSelector("button:nth-child(" + id + ")"));
+        WebElement answer = driver.findElement(By.cssSelector(".justify-center:nth-child(" + id + ")"));
         return answer;
     }
 

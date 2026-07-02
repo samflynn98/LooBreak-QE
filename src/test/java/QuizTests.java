@@ -24,24 +24,24 @@ public class QuizTests {
 
     //Question formatting tests
     @Test
-    public void threeRedOneGreenAnswer() throws Exception {
+    public void threeIncorrectOneCorrectAnswer() throws Exception {
         QuizPage page = new QuizPage(driver);
         page.navigate();
         Thread.sleep(200);
         page.answerQuestion(1);
         page.submitAnswer();
-        int red = 0, green = 0;
+        int incorrect = 0, correct = 0;
         for (int i = 1; i <= 4; i++) {
-            String colour = page.getAnswer(i).getCssValue("background-color");
-            System.out.println(colour);
-            if (colour.contains("0, 128, 0")) {
-                green++;
-            } else if (colour.contains("255, 0, 0")) {
-                red++;
+            String ansewerText = page.getAnswer(i).getText();
+            System.out.println(ansewerText);
+            if (ansewerText.contains("Correct")) {
+                correct++;
+            } else if (ansewerText.contains("Incorrect")) {
+                incorrect++;
             }
         }
-        assertEquals(1, green);
-        assertEquals(3, red);
+        assertEquals(1, correct);
+        assertEquals(3, incorrect);
     }
 
     //Score tests
