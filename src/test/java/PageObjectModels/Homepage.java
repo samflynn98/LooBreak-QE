@@ -36,7 +36,7 @@ public class Homepage {
     }
 
     // Icebreakers
-    public By icebreakerButton = By.cssSelector("[data-testid='icebreaker-reveal-btn']");
+    public By icebreakerButton = By.cssSelector("[data-testid='icebreaker-reveal']");
     public By icebreakerList = By.cssSelector("[data-testid='icebreaker-list']");
     public By icebreakerCloseButton = By.cssSelector("[data-slot='drawer-close']");
 

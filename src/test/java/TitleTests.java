@@ -19,7 +19,7 @@ public class TitleTests {
     @Test
     public void homepageTitleCorrect() throws Exception {
         Homepage page = new Homepage(driver).navigate();
-        assertEquals("LooBreak", page.getTitle());
+        assertEquals("LooBreak — Daily Quiz", page.getTitle());
         //config.takeScreenshot(driver, "TitleTest1.png");
     }
 
@@ -33,7 +33,7 @@ public class TitleTests {
     @Test
     public void quizTitleCorrect() throws Exception {
         QuizPage page = new QuizPage(driver).navigate();
-        assertEquals("LooBreak", page.getTitle()); //should each page have different title?
+        assertEquals("LooBreak — Daily Quiz", page.getTitle()); //should each page have different title?
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TitleTests {
     @Test
     public void leaderboardTitleCorrect() throws Exception {
         LeaderboardPage page = new LeaderboardPage(driver).navigate();
-        assertEquals("LooBreak", page.getTitle()); //should each page have different title?
+        assertEquals("LooBreak — Daily Quiz", page.getTitle()); //should each page have different title?
     }
 
     @Test
