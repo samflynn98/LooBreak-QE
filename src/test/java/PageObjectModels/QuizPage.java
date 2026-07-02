@@ -54,7 +54,7 @@ public class QuizPage {
 
     //Question attributes
     public String getQuestionNumber() {
-        String QuestionNum = driver.findElement(By.cssSelector("h3")).getText();
+        String QuestionNum = driver.findElement(By.cssSelector("[data-slot='item-title']")).getText();
         return QuestionNum;
     }
 
