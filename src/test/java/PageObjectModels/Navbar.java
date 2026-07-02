@@ -15,6 +15,6 @@ public class Navbar {
     }
 
     public void toggleDarkMode() {
-        driver.findElement(By.className("icebreaker-list")).click();
+        driver.findElement(By.cssSelector("[data-testid='theme-toggle']")).click();
     }
 }
