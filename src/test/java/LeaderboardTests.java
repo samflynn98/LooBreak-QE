@@ -87,10 +87,23 @@ public class LeaderboardTests {
         WebElement playerRowA = driver.findElement(By.xpath("//div[@data-testid='leaderboard']//tr[td[text()='" + playerA + "']]"));
         WebElement playerRowB = driver.findElement(By.xpath("//div[@data-testid='leaderboard']//tr[td[text()='" + playerB + "']]"));
         // 2. Extract data from that specific row (Score is the 3rd column / 3rd td)
-        int rankA = Integer.parseInt(playerRowA.findElement(By.xpath("./td[1]")).getText());
-        int rankB = Integer.parseInt(playerRowB.findElement(By.xpath("./td[1]")).getText());
-        assertTrue(rankB < rankA);
-        System.out.println(rankA + rankB);
+        String rankA = playerRowA.findElement(By.xpath("./td[1]")).getText();
+        String rankB = playerRowB.findElement(By.xpath("./td[1]")).getText();
+        switch (rankA)
+        {
+            case "\uD83E\uDD47": rankA = "1"; break;
+            case "\uD83E\uDD48": rankA = "2"; break;
+            case "\uD83E\uDD49": rankA = "3"; break;
+        }
+        switch (rankB)
+        {
+            case "\uD83E\uDD47": rankB = "1"; break;
+            case "\uD83E\uDD48": rankB = "2"; break;
+            case "\uD83E\uDD49": rankB = "3"; break;
+        }
+        int rankAnum = Integer.parseInt(rankA); int rankBnum = Integer.parseInt(rankB);
+        assertTrue(rankBnum < rankAnum);
+        System.out.println(rankAnum + rankBnum);
     }
 
     @AfterEach

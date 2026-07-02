@@ -44,7 +44,7 @@ public class Homepage {
     }
 
     public String getLootipText() {
-        String lootip = driver.findElement(By.cssSelector("[data-testid='lootip-banner'] span[aria-live='polite']")).getText();
+        String lootip = driver.findElement(By.className("_tipText_oj9jv_24")).getText();
         return lootip;
     }
 }

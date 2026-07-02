@@ -15,6 +15,6 @@ public class Navbar {
     }
 
     public void toggleDarkMode() {
-        driver.findElement(By.cssSelector("button:nth-child(5)")).click();
+        driver.findElement(By.className("_tipText_oj9jv_24")).click();
     }
 }
